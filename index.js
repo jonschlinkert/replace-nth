@@ -1,9 +1,22 @@
+/**
+ * match-nth <https://github.com/assemble/match-nth>
+ *
+ * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
+ * Licensed under the MIT license.
+ */
+var _ = require('lodash');
 
-var str = "HELLO, WORLD!";
-var i = 0;
-str = str.replace(/L/g, function (match) {
-  i++;
-  return (/[1-2]/.test(i)) ? "M" : match;
-});
+module.exports = function(options) {
+  options = options || {};
 
-console.log(str); // "HELMO, WORLD!";
+  var pattern = options.pattern;
+  var replacement = options.replacement;
+  var str = options.str;
+  var num = options.num;
+
+  var i = 0;
+  return str.replace(pattern, function (match) {
+    i++;
+    return new RegExp('^' + num + '$').test(i) ? replacement : match;
+  });
+};

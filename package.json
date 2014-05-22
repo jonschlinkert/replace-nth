@@ -1,0 +1,44 @@
+{
+  "name": "match-nth",
+  "description": "Replace only specific occurrences of a string. e.g. if the string exists 10 times, you can replace, say, the 3rd and 8th occurrences only, etc. Returns a new string with nth specific matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/match-nth",
+  "author": {
+    "name": "Jon Schlinkert",
+    "url": "https://github.com/jonschlinkert"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jonschlinkert/match-nth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/match-nth/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jonschlinkert/match-nth/blob/master/LICENSE-MIT"
+    }
+  ],
+  "keywords": [
+    "docs",
+    "documentation",
+    "generate",
+    "generator",
+    "markdown",
+    "templates",
+    "verb"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.8"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "devDependencies": {
+    "verb": "~0.2.0",
+    "chai": "~1.9.1",
+    "mocha": "~1.18.2"
+  }
+}
