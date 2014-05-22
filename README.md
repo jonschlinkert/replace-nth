@@ -1,4 +1,4 @@
-# match-nth [![NPM version](https://badge.fury.io/js/match-nth.png)](http://badge.fury.io/js/match-nth)
+# replace-nth [![NPM version](https://badge.fury.io/js/replace-nth.png)](http://badge.fury.io/js/replace-nth)
 
 > Replace only specific occurrences of a string. e.g. if the string exists 10 times, you can replace, say, the 3rd and 8th occurrences only, etc. Returns a new string with nth specific matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.
 
@@ -6,14 +6,14 @@
 Install with [npm](npmjs.org):
 
 ```bash
-npm i match-nth --save-dev
-```
+npm i replace-nth --save-dev
+``` 
 
 ## Usage
 
 ```js
-var matchNth = require('match-nth');
-matchNth( params );
+var replaceNth = require('replace-nth');
+replaceNth( params );
 ```
 
 Params:
@@ -36,7 +36,7 @@ var params = {
   // the replacement to use
   replacement: 'B',
 };
-console.log(matchNth(params));
+console.log(replaceNth(params));
 //=> 'BaBaBaaaaaaaaaa'
 ```
 
@@ -48,7 +48,7 @@ console.log(matchNth(params));
 + [twitter/jonschlinkert](http://twitter.com/jonschlinkert)
 
 ## License
-Copyright (c) 2014 Jon Schlinkert, contributors.
+Copyright (c) 2014 Jon Schlinkert, contributors.  
 Released under the MIT license
 
 ***

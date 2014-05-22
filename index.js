@@ -1,5 +1,5 @@
 /**
- * match-nth <https://github.com/assemble/match-nth>
+ * replace-nth <https://github.com/assemble/replace-nth>
  *
  * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
  * Licensed under the MIT license.
