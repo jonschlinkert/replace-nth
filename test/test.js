@@ -4,7 +4,7 @@ var replaceNth = require('../');
 
 var opts = {
   pattern: /a/g,
-  replacement: 'b',
+  replacement: 'B',
   str: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 };
 
@@ -12,42 +12,54 @@ describe('replaceNth - single match', function () {
   describe('when a regex specifies a single match:', function () {
     it('should return that specific match only', function (done) {
       opts.num = '1'
-      expect(replaceNth(opts)).to.equal('baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      expect(replaceNth(opts)).to.equal('Baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      done();
+    });
+  });
+  describe('multiple matches', function () {
+    it('should replace each match', function (done) {
+      opts.num = '1|3|5'
+      expect(replaceNth(opts)).to.equal('BaBaBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
   });
   describe('when a regex specifies a single two-digit match:', function () {
     it('should return each match at the specified index', function (done) {
       opts.num = '21'
-      expect(replaceNth(opts)).to.eql('aaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaa');
+      expect(replaceNth(opts)).to.eql('aaaaaaaaaaaaaaaaaaaaBaaaaaaaaaaaaaaaaaaaa');
       done();
     });
     it('should return each match at the specified index', function (done) {
       opts.num = '11'
-      expect(replaceNth(opts)).to.eql('aaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      expect(replaceNth(opts)).to.eql('aaaaaaaaaaBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
   });
   describe('when a regex specifies multiple numbers:', function () {
     it('should return matches for each', function (done) {
       opts.num = '[12]'
-      expect(replaceNth(opts)).to.equal('bbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      expect(replaceNth(opts)).to.equal('BBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
     it('should return matches for each', function (done) {
       opts.num = '[123]'
-      expect(replaceNth(opts)).to.equal('bbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      expect(replaceNth(opts)).to.equal('BBBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      done();
+    });
+    it('should return matches for each number in the brackets and outside', function (done) {
+      opts.num = '[123]|15'
+      expect(replaceNth(opts)).to.equal('BBBaaaaaaaaaaaBaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
   });
 
-  describe('when a regex specifies two matches:', function () {
+  describe('when a regex specifies two replacements:', function () {
     var opts = {
       pattern: /a/g,
       replacement: 'BB',
       str: 'aaaaaaaaaaaaaaa'
     };
-    it('should return that specific match only', function (done) {
+    it('should replace each match', function (done) {
       opts.num = '1'
       expect(replaceNth(opts)).to.equal('BBaaaaaaaaaaaaaa');
       opts.num = '[135]'
@@ -57,4 +69,5 @@ describe('replaceNth - single match', function () {
       done();
     });
   });
+
 });

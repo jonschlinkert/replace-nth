@@ -1,7 +1,7 @@
 {
   "name": "replace-nth",
   "description": "Replace only specific occurrences of a string. e.g. if the string exists 10 times, you can replace, say, the 3rd and 8th occurrences only, etc. Returns a new string with nth specific matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/jonschlinkert/replace-nth",
   "author": {
     "name": "Jon Schlinkert",

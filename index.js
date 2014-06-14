@@ -17,6 +17,6 @@ module.exports = function(options) {
   var i = 0;
   return str.replace(pattern, function (match) {
     i++;
-    return new RegExp('^' + num + '$').test(i) ? replacement : match;
+    return new RegExp('^(?:' + num + ')$', 'g').test(i) ? replacement : match;
   });
 };
