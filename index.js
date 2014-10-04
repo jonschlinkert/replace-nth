@@ -4,15 +4,16 @@
  * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
  * Licensed under the MIT license.
  */
-var _ = require('lodash');
 
-module.exports = function(options) {
-  options = options || {};
+'use strict';
 
-  var pattern = options.pattern;
-  var replacement = options.replacement;
-  var str = options.str;
-  var num = options.num;
+module.exports = function nth(options) {
+  var opts = options || {};
+
+  var pattern = opts.pattern;
+  var replacement = opts.replacement;
+  var str = opts.str;
+  var num = opts.num;
 
   var i = 0;
   return str.replace(pattern, function (match) {

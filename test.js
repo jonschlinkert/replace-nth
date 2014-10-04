@@ -1,5 +1,14 @@
-var expect = require('chai').expect;
-var replaceNth = require('../');
+/**
+ * replace-nth <https://github.com/assemble/replace-nth>
+ *
+ * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
+ * Licensed under the MIT license.
+ */
+
+'use strict';
+
+var should = require('should');
+var replaceNth = require('./');
 
 
 var opts = {
@@ -12,43 +21,43 @@ describe('replaceNth - single match', function () {
   describe('when a regex specifies a single match:', function () {
     it('should return that specific match only', function (done) {
       opts.num = '1'
-      expect(replaceNth(opts)).to.equal('Baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      replaceNth(opts).should.equal('Baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
   });
   describe('multiple matches', function () {
     it('should replace each match', function (done) {
       opts.num = '1|3|5'
-      expect(replaceNth(opts)).to.equal('BaBaBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      replaceNth(opts).should.equal('BaBaBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
   });
   describe('when a regex specifies a single two-digit match:', function () {
     it('should return each match at the specified index', function (done) {
       opts.num = '21'
-      expect(replaceNth(opts)).to.eql('aaaaaaaaaaaaaaaaaaaaBaaaaaaaaaaaaaaaaaaaa');
+      replaceNth(opts).should.equal('aaaaaaaaaaaaaaaaaaaaBaaaaaaaaaaaaaaaaaaaa');
       done();
     });
     it('should return each match at the specified index', function (done) {
       opts.num = '11'
-      expect(replaceNth(opts)).to.eql('aaaaaaaaaaBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      replaceNth(opts).should.equal('aaaaaaaaaaBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
   });
   describe('when a regex specifies multiple numbers:', function () {
     it('should return matches for each', function (done) {
       opts.num = '[12]'
-      expect(replaceNth(opts)).to.equal('BBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      replaceNth(opts).should.equal('BBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
     it('should return matches for each', function (done) {
       opts.num = '[123]'
-      expect(replaceNth(opts)).to.equal('BBBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      replaceNth(opts).should.equal('BBBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
     it('should return matches for each number in the brackets and outside', function (done) {
       opts.num = '[123]|15'
-      expect(replaceNth(opts)).to.equal('BBBaaaaaaaaaaaBaaaaaaaaaaaaaaaaaaaaaaaaaa');
+      replaceNth(opts).should.equal('BBBaaaaaaaaaaaBaaaaaaaaaaaaaaaaaaaaaaaaaa');
       done();
     });
   });
@@ -61,11 +70,11 @@ describe('replaceNth - single match', function () {
     };
     it('should replace each match', function (done) {
       opts.num = '1'
-      expect(replaceNth(opts)).to.equal('BBaaaaaaaaaaaaaa');
+      replaceNth(opts).should.equal('BBaaaaaaaaaaaaaa');
       opts.num = '[135]'
-      expect(replaceNth(opts)).to.equal('BBaBBaBBaaaaaaaaaa');
+      replaceNth(opts).should.equal('BBaBBaBBaaaaaaaaaa');
       opts.num = '[196]'
-      expect(replaceNth(opts)).to.equal('BBaaaaBBaaBBaaaaaa');
+      replaceNth(opts).should.equal('BBaaaaBBaaBBaaaaaa');
       done();
     });
   });

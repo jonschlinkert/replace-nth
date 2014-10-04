@@ -1,7 +1,7 @@
 {
   "name": "replace-nth",
   "description": "Replace only specific occurrences of a string. e.g. if the string exists 10 times, you can replace, say, the 3rd and 8th occurrences only, etc. Returns a new string with nth specific matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "homepage": "https://github.com/jonschlinkert/replace-nth",
   "author": {
     "name": "Jon Schlinkert",
@@ -21,13 +21,18 @@
     }
   ],
   "keywords": [
-    "docs",
-    "documentation",
-    "generate",
-    "generator",
-    "markdown",
-    "templates",
-    "verb"
+    "expression",
+    "matches",
+    "pattern",
+    "re",
+    "regex",
+    "regexp",
+    "regular",
+    "replace",
+    "replacement",
+    "replacements",
+    "specific",
+    "string"
   ],
   "main": "index.js",
   "engines": {
@@ -37,8 +42,8 @@
     "test": "mocha -R spec"
   },
   "devDependencies": {
-    "verb": "~0.2.0",
-    "chai": "~1.9.1",
-    "mocha": "~1.18.2"
+    "mocha": "~1.18.2",
+    "should": "^4.0.4",
+    "verb": "^0.2.15"
   }
 }
